@@ -20,10 +20,10 @@ public class ProductDAOImpl implements ProductDAO  {
 		
 		return null;
 	}
-	@Autowired
 
 	private SessionFactory sessionFactory;
 
+	@Autowired
 	public ProductDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	

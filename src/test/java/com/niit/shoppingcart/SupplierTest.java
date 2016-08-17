@@ -9,7 +9,7 @@ public class SupplierTest {
 	public static void main(String[]args){
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context=  new  AnnotationConfigApplicationContext();
-		context.scan("com.vishu");
+		context.scan("com.niit");
 		context.refresh();
 		Supplier supplier =  (Supplier) context.getBean("supplier");
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");

@@ -9,7 +9,7 @@ public class UserTest {
 	public static void main(String[]args){
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context=  new  AnnotationConfigApplicationContext();
-		context.scan("com.vishu");
+		context.scan("com.niit");
 		context.refresh();
 		User user =  (User) context.getBean("user");
 		UserDAO userDAO = (UserDAO) context.getBean("userDAO");

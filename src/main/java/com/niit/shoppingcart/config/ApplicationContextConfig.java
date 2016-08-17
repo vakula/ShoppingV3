@@ -20,14 +20,14 @@ import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcart.model.User;
 
 @Configuration
-@ComponentScan("com.vishu")
+@ComponentScan("com.niit")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://192.168.0.10/~/test");
+		dataSource.setUrl("jdbc:h2:tcp://192.168.0.6/~/test");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		return dataSource;
