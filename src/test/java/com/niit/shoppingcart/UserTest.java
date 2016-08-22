@@ -2,8 +2,8 @@ package com.niit.shoppingcart;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.model.User;
-import com.niit.shoppingcart.dao.UserDAO;
+import com.niit.shoppingcart.model.Login;
+import com.niit.shoppingcart.dao.LoginDAO;
 
 public class UserTest {
 	public static void main(String[]args){
@@ -11,13 +11,13 @@ public class UserTest {
 		AnnotationConfigApplicationContext context=  new  AnnotationConfigApplicationContext();
 		context.scan("com.niit");
 		context.refresh();
-		User user =  (User) context.getBean("user");
-		UserDAO userDAO = (UserDAO) context.getBean("userDAO");
-		user.setId("1");
-		user.setName("sravan");
-		user.setMail_Id("happy");
-		user.setMobile_No(52828);
-		userDAO.saveOrUpdate(user);
+		Login user =  (Login) context.getBean("user");
+		LoginDAO userDAO = (LoginDAO) context.getBean("userDAO");
+		user.setId(1);
+		user.setUsername("vaku");
+		user.setPassword("vakus");
+		userDAO.save(user);
+		userDAO.Update(user);
 	}
 
 }

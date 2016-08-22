@@ -2,18 +2,20 @@ package com.niit.shoppingcart.dao;
 
 import java.util.List;
 
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcart.model.Login;
+import com.niit.shoppingcart.model.Register;
 
-public interface UserDAO {
-		public List<User> list();
+public interface LoginDAO {
+		public List<Login> list();
 		
-		public User get(String id);
+		public Login get(int id);
 		
-		public  void saveOrUpdate(User user);
+		public void save(Login user);
+		public void Update(Login user);
 		
-		public void delete(String string);
-		public List<User> listUser();
-
+		public void delete(int string);
+		public List<Login> listUser();
+	
 	}
 
 

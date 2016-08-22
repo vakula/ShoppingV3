@@ -1,3 +1,4 @@
+
 package com.niit.shoppingcart.dao;
 
 import java.util.List;
@@ -10,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcart.model.Login;
+import com.niit.shoppingcart.model.Register;
 
 @Repository("userDAO")
-public class UserDAOImpl implements UserDAO  {
+public class LoginDAOImpl implements LoginDAO 
+{
 
-	public List<User> list() {
+	public List<Login> list() {
 		
 		
 		return null;
@@ -24,18 +27,18 @@ public class UserDAOImpl implements UserDAO  {
 
 	private SessionFactory sessionFactory;
 
-	public UserDAOImpl(SessionFactory sessionFactory) {
+	public LoginDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	
 	}
 @Transactional
-	public User get(String id) {
+	public Login get(int id) {
 		// TODO Auto-generated method stub
 		// sessionFactory.getCurrentSession().get(User.class,id);
 				String hql = "from User where userId=" + "'" + id + "'";
 				Query query = sessionFactory.getCurrentSession().createQuery(hql);
 				@SuppressWarnings("unchecked")
-				List<User> listUser = query.list();
+				List<Login> listUser = query.list();
 				if (listUser != null && !listUser.isEmpty()) {
 					return listUser.get(0);
 				}
@@ -43,29 +46,37 @@ public class UserDAOImpl implements UserDAO  {
 	}
 	
 @Transactional
-	public void saveOrUpdate(User user) {
+	public void save(Login user)
+{
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sessionFactory.getCurrentSession().save(user);
 
 		
 	}
 @Transactional
-	public void delete(String Id) {
+public void Update(Login user)
+{
+	// TODO Auto-generated method stub
+	sessionFactory.getCurrentSession().update(user);
+
+	
+}
+@Transactional
+	public void delete(int Id) {
 		// TODO Auto-generated method stub
-		User UserToDelete = new User();
+		Login UserToDelete = new Login();
 		UserToDelete.setId(Id);
 		sessionFactory.getCurrentSession().delete(UserToDelete);
 		
 	}
 @Transactional
-	public List<User> listUser() {
+	public List<Login> listUser() {
 		// TODO Auto-generated method stub
 		@SuppressWarnings("unchecked")
-		List<User> listUser = sessionFactory.getCurrentSession().createCriteria(User.class)
+		List<Login> listUser = sessionFactory.getCurrentSession().createCriteria(Login.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listUser;
 		
 	}
-	
 		
 }

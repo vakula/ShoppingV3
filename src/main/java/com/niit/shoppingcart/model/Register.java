@@ -12,9 +12,9 @@ import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="User_Details")
+@Table(name="UserDetails")
 @Component
-public class UserDetails {
+public class Register {
 	@Id
 	 @GeneratedValue(strategy=GenerationType.AUTO)
 	 @Column(name="id")
@@ -22,78 +22,16 @@ public class UserDetails {
 	 
 	 @NotNull
 	 @Size(min=2,max=30,message="Name Must be more than 2 letters")
-	 @Column(name="name")
-   private String name;
+	 @Column(name="username")
+   private String username;
 	 
-	@Column (name="admin", columnDefinition="tinyinit default 0 ")
-	private boolean admin;
-
-	public boolean getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
 	@NotNull
 	 @Size(min=2,max=30)
 	 @Column(name="password")
 
 	private String password;
-	private String confirm_password;
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-	 public String getConfirm_password() {
-		return confirm_password;
-	}
-
-	public void setConfirm_password(String confirm_password) {
-		this.confirm_password = confirm_password;
-	}
+	private String confirmpassword;
+	
 	@NotNull
 	 @Size(min=2,max=30)
 	@Column(name = "email")
@@ -105,8 +43,60 @@ public class UserDetails {
 	 @NotNull
 	 @Size(min=10,max=12)
 	 @Column(name="mobile")
+	 private String mobile;
+	 @NotNull
+	 @Column(name="Status")
+	private boolean Status=true;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
-	private String mobile;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public boolean isStatus() {
+		return Status;
+	}
+	public void setStatus(boolean status) {
+		Status = status;
+	}
+	
 }
 
 

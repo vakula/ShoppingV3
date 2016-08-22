@@ -17,7 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
-import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcart.model.Login;
+import com.niit.shoppingcart.model.Register;
 
 @Configuration
 @ComponentScan("com.niit")
@@ -27,7 +28,7 @@ public class ApplicationContextConfig {
 	public DataSource getH2DataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://192.168.0.6/~/test");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		return dataSource;
@@ -36,7 +37,7 @@ public class ApplicationContextConfig {
 	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", "true");
-		properties.put("hibernate.hbm2ddl.auto", "create");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		return properties;
 	}
@@ -49,7 +50,8 @@ public class ApplicationContextConfig {
 		SessionBuilder.addAnnotatedClass(Category.class);
 		SessionBuilder.addAnnotatedClass(Supplier.class);
 		SessionBuilder.addAnnotatedClass(Product.class);
-		SessionBuilder.addAnnotatedClass(User.class);
+		SessionBuilder.addAnnotatedClass(Login.class);
+		SessionBuilder.addAnnotatedClass(Register.class);
 		
 		return SessionBuilder.buildSessionFactory();
 
